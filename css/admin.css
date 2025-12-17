@@ -1,0 +1,131 @@
+.admin-login-modal-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(30, 40, 60, 0.5);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.admin-login-modal {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 12px 48px rgba(13, 20, 35, 0.25);
+  padding: 40px 32px 32px 32px;
+  min-width: 420px;
+  max-width: 95vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.admin-login-modal h2 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-size: 24px;
+  color: #1d3557;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+}
+
+.admin-login-description {
+  color: #457b9d;
+  font-size: 15px;
+  margin-bottom: 32px;
+  line-height: 1.5;
+}
+
+.admin-google-signin-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: #fff;
+  color: #1d3557;
+  border: 2px solid #e7eaf3;
+  border-radius: 10px;
+  padding: 14px 32px;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(13, 20, 35, 0.08);
+  transition: all 0.18s;
+  width: 100%;
+  max-width: 320px;
+  margin-bottom: 16px;
+}
+
+.admin-google-signin-btn:hover {
+  background: #f6fafd;
+  border-color: #457b9d;
+  box-shadow: 0 6px 20px rgba(13, 20, 35, 0.12);
+}
+
+.admin-google-signin-btn:disabled {
+  background: #f5f5f5;
+  color: #aaa;
+  cursor: not-allowed;
+  border-color: #e7eaf3;
+  box-shadow: none;
+}
+
+.google-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.admin-login-error {
+  color: #dc2836;
+  margin-bottom: 16px;
+  font-size: 15px;
+  font-weight: 600;
+  background: #ffeaea;
+  padding: 12px 16px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 320px;
+}
+
+.admin-login-back {
+  background: transparent;
+  color: #457b9d;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 24px;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s;
+  margin-top: 8px;
+}
+
+.admin-login-back:hover {
+  background: #f6fafd;
+  color: #1d3557;
+}
+
+.admin-login-back:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@media (max-width: 480px) {
+  .admin-login-modal {
+    min-width: 300px;
+    padding: 32px 24px 24px 24px;
+  }
+
+  .admin-login-modal h2 {
+    font-size: 20px;
+  }
+
+  .admin-google-signin-btn {
+    font-size: 15px;
+    padding: 12px 24px;
+  }
+}

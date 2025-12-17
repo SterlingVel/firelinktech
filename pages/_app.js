@@ -1,6 +1,19 @@
 import '../css/main.css'
+import '../css/burglarAlarms.css'
+import '../css/admin.css'
+import '../css/products.css'
+import Layout from '../components/Layout'
+import { useRouter } from 'next/router'
 
-// This default export is required in a new `pages/_app.js` file.
 export default function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  const router = useRouter()
+  const noLayout = router.pathname === '/admin'
+
+  return noLayout ? (
+    <Component {...pageProps} />
+  ) : (
+    <Layout>
+      <Component {...pageProps} />
+    </Layout>
+  )
 }
