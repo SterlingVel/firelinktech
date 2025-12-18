@@ -28,7 +28,6 @@ export default class ServicePage extends React.Component {
       user: null,
       email: null,
       uid: null,
-      name: null,
       files: [],
       userFiles: [],
       admin: "none",
@@ -60,7 +59,6 @@ export default class ServicePage extends React.Component {
           this.setState({
             email: user.email,
             uid: user.uid,
-            name: user.displayName || snapshot.val().name,
             admin: "block"
           });
 
@@ -105,7 +103,7 @@ export default class ServicePage extends React.Component {
 
   async showFiles() {
     document.getElementById("fileUploader").addEventListener('change', async (event) => {
-      await database.add(this.props.fileKey, event.target.files, this.state.email, this.state.uid, this.state.name);
+      await database.add(this.props.fileKey, event.target.files, this.state.email, this.state.uid);
       this.setState({ files: await database.getAllFiles(this.props.fileKey) });
     });
   }
@@ -182,7 +180,7 @@ export default class ServicePage extends React.Component {
 
   handlePopupSubmit = async (e) => {
     e.preventDefault();
-    const { selectedFile, uploadName, uploadDescription, email, uid, name } = this.state;
+    const { selectedFile, uploadName, uploadDescription, email, uid } = this.state;
     const { fileKey } = this.props;
     if (!selectedFile || !uploadName.trim() || !uploadDescription.trim()) {
       this.setState({ uploadError: 'All fields are required.' });
@@ -195,7 +193,6 @@ export default class ServicePage extends React.Component {
         [selectedFile],
         email,
         uid,
-        name,
         uploadName.trim(),
         uploadDescription.trim()
       );

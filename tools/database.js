@@ -22,14 +22,13 @@ class Database {
         return files;
     }
 
-    async add(page, files, email, uid, username, fileName, fileDescription) {
+    async add(page, files, email, uid, fileName, fileDescription) {
         var date = await this.setDate();
         for (var i = 0; i < files.length; i++) {
             await firebase.storage().ref(page).child(fileName + '_' + files[i].name).put(files[i])
             await firebase.database().ref(page + '/' + files[i].lastModified + uid).set({
                 name: fileName || files[i].name,
                 description: fileDescription || '',
-                username: username,
                 size: files[i].size,
                 timestamp: (+ new Date) * -1,
                 date: date,
@@ -44,7 +43,6 @@ class Database {
                 }
             })
         }
-        //document.getElementById("loader").style.display = "block"
     }
 
     async erase(page, file, uid) {
