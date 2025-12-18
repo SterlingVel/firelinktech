@@ -14,7 +14,7 @@ export default async function handler(req, res) {
   const transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST,
     port: parseInt(process.env.SMTP_PORT, 10),
-    secure: true,
+    secure: false,
     auth: {
       user: process.env.SMTP_USER,
       pass: process.env.SMTP_PASS,
@@ -42,6 +42,7 @@ export default async function handler(req, res) {
     await transporter.sendMail(confirmationMailOptions);
     res.status(200).json({ success: true });
   } catch (err) {
-    res.status(500).json({ error: 'Failed to send email' });
+    console.error('Nodemailer error:', err);
+    res.status(500).json({ error: 'Failed to send email', details: err.message });
   }
 }
