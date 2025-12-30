@@ -140,7 +140,6 @@ export default async function handler(req, res) {
         </div>
         <div class="email-footer">
           <div>&copy; 2025 FireLink Tech. All rights reserved.</div>
-          <div>15200 SW 163rd Ave, Southwest Ranches, FL 33331</div>
         </div>
       </div>
       </body>
@@ -148,7 +147,7 @@ export default async function handler(req, res) {
     };
 
     try {
-      // await transporter.sendMail(businessMailOptions);
+      await transporter.sendMail(businessMailOptions);
       await transporter.sendMail(applicantMailOptions);
 
       // Delete uploaded file after sending
