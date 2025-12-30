@@ -283,7 +283,7 @@
   color: #457b9d;
   font-size: 16px;
   padding: 18px 0;
-  text-align: center;
+  text-align: left;
 }
 
 .service-file-card {
@@ -791,7 +791,8 @@
     padding: 0;
   }
 
-  .service-side-actions {
+  .service-side-actions,
+  .service-files-empty {
     padding: 0 40px;
   }
 

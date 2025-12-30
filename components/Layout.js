@@ -155,11 +155,11 @@ export default function Layout({ children }) {
                             <div id="servicesDrop" className={`dropdown ${servicesOpen ? 'active' : ''}`} onClick={toggleActive}>
                                 <button className="drop-btn">SERVICES <span className="chev">▾</span></button>
                                 <div className="dropdown-content">
-                                    <Link href="/BurglarAlarms">Burglar Alarms</Link>
-                                    <div className="dropdown-divider" />
                                     <Link href="/FireAlarms">Fire Alarms</Link>
                                     <div className="dropdown-divider" />
                                     <Link href="/MassSystems">Mass Notifications</Link>
+                                    <div className="dropdown-divider" />
+                                    <Link href="/SecuritySystems">Security Systems</Link>
                                 </div>
                             </div>
                             <Link href="/Products" className="nav-btn">PRODUCTS</Link>
@@ -175,14 +175,14 @@ export default function Layout({ children }) {
                         <div className="mobile-menu-content">
                             <div className="mobile-menu-section">
                                 <div className="mobile-menu-label">SERVICES</div>
-                                <Link href="/BurglarAlarms" className="mobile-menu-subitem" onClick={closeMobileMenu}>
-                                    Burglar Alarm Systems
-                                </Link>
                                 <Link href="/FireAlarms" className="mobile-menu-subitem" onClick={closeMobileMenu}>
-                                    Fire Alarm Systems
+                                    Fire Alarms
                                 </Link>
                                 <Link href="/MassSystems" className="mobile-menu-subitem" onClick={closeMobileMenu}>
-                                    Mass Notification Systems
+                                    Mass Notifications
+                                </Link>
+                                <Link href="/SecuritySystems" className="mobile-menu-subitem" onClick={closeMobileMenu}>
+                                    Security Systems
                                 </Link>
                             </div>
 

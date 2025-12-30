@@ -8,63 +8,45 @@ export default function Products() {
   const products = [
     {
       id: 2,
-      image: '/products/p2.png',
-      title: 'The FX-1000 Panel',
-      description: 'The FX-1000 provides one Class A or Class B intelligent device loop that supports up to 250 device addresses.'
+      image: '/products/p1.jpeg',
+      title: 'Fire Alarm Panel iO64',
+      description: 'Addressable fire alarm panel supporting up to 64 devices for small to mid-sized systems.'
     },
     {
       id: 3,
-      image: '/products/p3.png',
-      title: 'RZI16-2',
-      description: 'Remote Zone Interface - An addressable device that provides connections for sixteen Class B initiating device circuits (IDCs).'
+      image: '/products/p2.jpeg',
+      title: 'The Edge Series',
+      description: 'Reliable, user-friendly fire alarm system designed for mid-sized buildings and easy upgrades.'
     },
     {
       id: 4,
-      image: '/products/p4.png',
-      title: 'VS1-G',
-      description: 'Fire Alarm Control Panel - Single Loop - 64 Intelligent Devices Max'
+      image: '/products/p3.jpeg',
+      title: 'EST3X',
+      description: 'Advanced life safety panel with high-capacity networking, intuitive controls, and Voltage Boost™ technology.'
     },
     {
       id: 5,
-      image: '/products/p5.png',
-      title: 'VM-LOC',
-      description: 'Local Operations Console - Remotely control emergency messaging and system operation.'
+      image: '/products/p4.jpeg',
+      title: 'EST4',
+      description: 'Advanced network life safety platform with modular design, cyber security, and backward compatibility.'
     },
     {
       id: 6,
-      image: '/products/p6.png',
-      title: 'ANS50XG',
-      description: '50 Watt ANS Expander Panel - Includes an amplifier, tone generator, digital message repeater, and supervisory interface.'
+      image: '/products/p5.jpeg',
+      title: 'ModuLaser',
+      description: 'The most flexible design and tech-forward innovation available for early smoke and fire detection.'
     },
     {
       id: 7,
-      image: '/products/p7.png',
-      title: 'K-RLCD',
-      description: 'Intelligent LCD Annunciator - Provides status indication and common controls for compatible fire alarm control panels.'
+      image: '/products/p6.jpeg',
+      title: 'Fireworks OneView',
+      description: 'Graphical annunciator providing fast, detailed fire event info for first responders.'
     },
     {
       id: 8,
-      image: '/products/p8.png',
-      title: 'IB4U',
-      description: 'Isolator Base - Protects SLC from complete collapse due to a wire to wire short.'
-    },
-    {
-      id: 9,
-      image: '/products/p9.png',
-      title: 'K-270',
-      description: 'Intelligent Manual Station - Single Action - Designed expressly for small buildings.'
-    },
-    {
-      id: 10,
-      image: '/products/p10.png',
-      title: 'SIGA-CRH',
-      description: 'High Power Control Relay Module - Designed for interface applications that require a high voltage, high curent delay.'
-    },
-    {
-      id: 11,
-      image: '/products/p11.png',
-      title: 'ANS50MDG2',
-      description: '50 Watt Audio Notification Panel - High-performance audio notification system that provides voice evacuation capability.'
+      image: '/products/p7.jpeg',
+      title: 'Fireworks Platform',
+      description: 'Incident management platform integrating fire alarm and building systems for effective response.'
     }
   ]
 
@@ -80,7 +62,7 @@ export default function Products() {
           <div className="products-hero-content">
             <h1>Our Products</h1>
             <p className="products-subtitle">
-              Explore our selection of professional-grade fire safety and security products. 
+              Explore our selection of professional-grade fire safety and security products.
               These products are currently available through inquiry only and cannot be purchased directly online.
             </p>
             <button className="btn primary products-inquiry-btn" onClick={scrollToContact}>

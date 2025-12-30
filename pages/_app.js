@@ -1,5 +1,5 @@
 import '../css/main.css'
-import '../css/burglarAlarms.css'
+import '../css/services.css'
 import '../css/admin.css'
 import '../css/products.css'
 import Layout from '../components/Layout'

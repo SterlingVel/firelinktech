@@ -351,13 +351,13 @@ export default function Home() {
           <div className="cards">
             <div className="card">
               <div className="card-media">
-                <img src="/alarms.png" alt="Burglar Alarm" />
+                <img src="/alarms.png" alt="Security Systems" />
               </div>
 
               <div className="card-content">
-                <h3>Burglar Alarm Systems</h3>
+                <h3>Security Systems</h3>
                 <p>Design, installation and monitoring to keep your property secure.</p>
-                <Link href="/BurglarAlarms" className="card-link">Learn more →</Link>
+                <Link href="/SecuritySystems" className="card-link">Learn more →</Link>
               </div>
             </div>
 
