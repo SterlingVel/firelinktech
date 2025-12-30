@@ -34,7 +34,7 @@ export default async function handler(req, res) {
 
     // Email to business
     const businessMailOptions = {
-      from: process.env.SMTP_USER,
+      from: `FireLink Support <${process.env.SMTP_USER}>`,
       to: process.env.SMTP_USER, 
       subject: `Job Application from ${name}`,
       text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nMessage: ${message}`,
@@ -49,11 +49,11 @@ export default async function handler(req, res) {
         : [],
     };
 
-    // Confirmation email to applicant (HTML)
+    // Confirmation email to applicant (HTML with inline logo, forced CTA color, and improved footer)
     const applicantMailOptions = {
-      from: process.env.SMTP_USER,
+      from: `FireLink Support <${process.env.SMTP_USER}>`,
       to: email,
-      subject: 'Your FireLink Tech job application has been received',
+      subject: 'Your job application has been received',
       html: `<!-- FireLink Tech - Hiring Confirmation Email -->
       <!DOCTYPE html>
       <html lang="en">
@@ -110,7 +110,7 @@ export default async function handler(req, res) {
           margin: 24px 0 0 0;
           padding: 8px 24px;
           background: #d32f2f;
-          color: #fff;
+          color: #fff !important;
           border-radius: 4px;
           text-decoration: none;
           font-weight: 500;
@@ -129,26 +129,33 @@ export default async function handler(req, res) {
       <body>
       <div class="email-container">
         <div class="email-header">
-          <img src="https://firelinktech.com/icons/firelink-logo.png" alt="FireLink Tech Logo" />
+          <img src="cid:logo" alt="FireLink Tech Logo" />
           <div class="email-title">Thank You for Your Application!</div>
         </div>
         <div class="email-body">
           <p>Hi <strong>${name}</strong>,</p>
           <p>We have received your application for a position at FireLink Tech. Our team will review your submission and contact you if your qualifications match our requirements.</p>
           <p>If you have any questions, feel free to reply to this email.</p>
-          <a class="cta-btn" href="https://firelinktech.com">Visit Our Website</a>
+          <a class="cta-btn" href="https://firelinktech.com" style="color:#fff !important;">Visit Our Website</a>
         </div>
         <div class="email-footer">
-          &copy; 2025 FireLink Tech. All rights reserved.<br>
-          15200 SW 163rd Ave, Southwest Ranches, FL 33331
+          <div>&copy; 2025 FireLink Tech. All rights reserved.</div>
+          <div>15200 SW 163rd Ave, Southwest Ranches, FL 33331</div>
         </div>
       </div>
       </body>
-      </html>`
+      </html>`,
+      attachments: [
+        {
+          filename: 'customLogo.png',
+          path: process.cwd() + '/public/customLogo.png',
+          cid: 'logo'
+        }
+      ]
     };
 
     try {
-      await transporter.sendMail(businessMailOptions);
+      // await transporter.sendMail(businessMailOptions);
       await transporter.sendMail(applicantMailOptions);
 
       // Delete uploaded file after sending

@@ -23,7 +23,7 @@ export default async function handler(req, res) {
 
   // Email to business
   const businessMailOptions = {
-    from: process.env.SMTP_USER,
+    from: `FireLink Support <${process.env.SMTP_USER}>`,
     to: process.env.SMTP_USER, // business email
     subject: `Contact Form Inquiry from ${name}`,
     text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
@@ -31,7 +31,7 @@ export default async function handler(req, res) {
 
   // Confirmation email to sender (HTML)
   const confirmationMailOptions = {
-    from: process.env.SMTP_USER,
+    from: `FireLink Support <${process.env.SMTP_USER}>`,
     to: email,
     subject: 'We received your message',
     html: `<!-- FireLink Tech - Contact Confirmation Email -->
@@ -90,7 +90,7 @@ export default async function handler(req, res) {
           margin: 24px 0 0 0;
           padding: 8px 24px;
           background: #d32f2f;
-          color: #fff;
+          color: #fff !important;
           border-radius: 4px;
           text-decoration: none;
           font-weight: 500;
@@ -109,26 +109,33 @@ export default async function handler(req, res) {
     <body>
       <div class="email-container">
         <div class="email-header">
-          <img src="https://firelinktech.com/icons/firelink-logo.png" alt="FireLink Tech Logo" />
+          <img src="cid:logo" alt="FireLink Tech Logo" />
           <div class="email-title">Thank You for Contacting Us!</div>
         </div>
         <div class="email-body">
           <p>Hi <strong>${name}</strong>,</p>
           <p>Thank you for reaching out to FireLink Tech! We have received your message and will get back to you as soon as possible.</p>
           <p>If you have any urgent questions, feel free to reply to this email or call us directly at <a href="tel:7864494354" style="color:#1d3557;text-decoration:underline;">(786) 449-4354</a>.</p>
-          <a class="cta-btn" href="https://firelinktech.com">Visit Our Website</a>
+          <a class="cta-btn" href="https://firelinktech.com" style="color:#fff !important;">Visit Our Website</a>
         </div>
         <div class="email-footer">
-          &copy; 2025 FireLink Tech. All rights reserved.<br>
-          15200 SW 163rd Ave, Southwest Ranches, FL 33331
+          <div>&copy; 2025 FireLink Tech. All rights reserved.</div>
+          <div>15200 SW 163rd Ave, Southwest Ranches, FL 33331</div>
         </div>
       </div>
     </body>
-    </html>`
+    </html>`,
+    attachments: [
+        {
+          filename: 'customLogo.png',
+          path: process.cwd() + '/public/customLogo.png',
+          cid: 'logo'
+        }
+      ]
   };
 
   try {
-    await transporter.sendMail(businessMailOptions);
+    // await transporter.sendMail(businessMailOptions);
     await transporter.sendMail(confirmationMailOptions);
     res.status(200).json({ success: true });
   } catch (err) {
