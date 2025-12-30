@@ -16,7 +16,6 @@ export default async function handler(req, res) {
   const form = new IncomingForm();
   form.parse(req, async (err, fields, files) => {
     if (err) {
-      console.error('Form parse error in send-hiring-email:', err);
       return res.status(500).json({ error: 'Form parse error' });
     }
 
@@ -130,7 +129,7 @@ export default async function handler(req, res) {
       <body>
       <div class="email-container">
         <div class="email-header">
-          <img src="cid:logo" alt="FireLink Tech Logo" />
+          <img src="https://firelinktech.com/customLogo.png" alt="FireLink Tech Logo" />
           <div class="email-title">Thank You for Your Application!</div>
         </div>
         <div class="email-body">
@@ -146,21 +145,9 @@ export default async function handler(req, res) {
       </div>
       </body>
       </html>`,
-      attachments: [
-        {
-          filename: 'customLogo.png',
-          path: process.cwd() + '/public/customLogo.png',
-          cid: 'logo'
-        }
-      ]
     };
 
     try {
-      console.log('send-hiring-email: business from =', businessMailOptions.from);
-      console.log('send-hiring-email: applicant from =', applicantMailOptions.from);
-      console.log('send-hiring-email: logo path =', applicantMailOptions.attachments[0].path);
-
-      // Optionally send business email as well
       // await transporter.sendMail(businessMailOptions);
       await transporter.sendMail(applicantMailOptions);
 
@@ -171,8 +158,7 @@ export default async function handler(req, res) {
 
       res.status(200).json({ success: true });
     } catch (error) {
-      console.error('send-hiring-email: failed to send email:', error);
-      res.status(500).json({ error: 'Failed to send email', details: error.message });
+      res.status(500).json({ error: 'Failed to send email' });
     }
   });
 }

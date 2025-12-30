@@ -109,7 +109,7 @@ export default async function handler(req, res) {
     <body>
       <div class="email-container">
         <div class="email-header">
-          <img src="cid:logo" alt="FireLink Tech Logo" />
+          <img src="https://firelinktech.com/customLogo.png" alt="FireLink Tech Logo" />
           <div class="email-title">Thank You for Contacting Us!</div>
         </div>
         <div class="email-body">
@@ -124,14 +124,7 @@ export default async function handler(req, res) {
         </div>
       </div>
     </body>
-    </html>`,
-    attachments: [
-        {
-          filename: 'customLogo.png',
-          path: process.cwd() + '/public/customLogo.png',
-          cid: 'logo'
-        }
-      ]
+    </html>`
   };
 
   try {
